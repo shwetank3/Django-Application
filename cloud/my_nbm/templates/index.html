@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h2>NBM Technologies Inc.</h2>
+
+  <p>Welcome to <em>NBM Technologies</em>, an online platform for Structural Solutions.</p>
+
+<h1>An Overview</h1>
+
+  <p>The platform has the following record counts:</p>
+  <ul>
+    <li><strong>Pending Analysis:</strong> {{ num_pending }}</li>
+    <li><strong>Completed Analysis:</strong> {{ num_completed }}</li>
+  </ul>
+  
+  
+  <p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+{% endblock %}

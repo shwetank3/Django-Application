@@ -1,0 +1,54 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Create New Project: {{ request.user }} </h1>
+<br></br>
+<br></br>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <table id="text-val">
+    {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit" id="dwn-btn"/>
+    
+</form>
+
+<script>
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
+document.getElementById("dwn-btn").addEventListener("click", function(){
+    // Generate download of hello.txt file with some content
+    <!-- var text = document.getElementById("text-val").value; -->
+	 
+	<!-- var text = table.rows[1].cells[1].innerHTML  -->
+    <!-- for(var i=1; i<5;i++){-->
+    <!--    text = table.rows[2].cells[1].firstChild.value-->
+    <!--}-->
+	var table = document.getElementById("text-val")
+    tableArr = new Array();
+    for(var i=3; i<10;i++){
+        tableArr.push([table.rows[i].cells[1].firstChild.value])
+    }
+    text = tableArr
+    var filename = "hello.txt";
+    
+    download(filename, text);
+}, false);
+
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Pending List</h1>
+	
+    {% if analysis_list %}
+    <ul>
+	
+      {% for analysis in analysis_list %}
+	    {% if analysis.status == 'p' %}
+      <li>
+        <a href="{{ analysis.get_absolute_url }}">{{ analysis.submission_date }}</a> ({{analysis.status}})
+		{% endif %}
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no analysis in the pending list.</p>
+    {% endif %}       
+{% endblock %}

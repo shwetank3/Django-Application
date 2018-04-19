@@ -1,0 +1,35 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Analysis: {{ analysis.owner }} / {{ analysis.submission_date }}</h1>
+  
+  <p><strong>Id:</strong> {{ analysis.id }}</p>
+  
+  <p><strong>Coordinate:</strong> <a href="">{{ analysis.co_ord }}</a></p> <!-- author detail link not yet defined -->
+  <p><strong>Depth:</strong> {{ analysis.depth }}</p>
+  <p><strong>n_els:</strong>{{ analysis.n_els }}</p>
+  <p><strong>n_el_l:</strong> {{ analysis.n_el_l }}</p>
+  <p><strong>El:</strong>{{ analysis.El }}</p> 
+  <p><strong>nu:</strong> {{ analysis.nu }}</p>
+  <p><strong>Fy:</strong>{{ analysis.Fy }}</p>
+  <p><strong>Boundary Conditons:</strong> {{ analysis.BC }}</p>
+  <p><strong>Analysis Type:</strong>{{ analysis.Analysis_type }}</p>
+  <p><strong>Test Type:</strong> {{ analysis.Test_type }}</p>
+  <br></br>
+  <p><strong>Output Stress:</strong> {{ analysis.o_stress }}</p> 
+  <p><strong>Output Strain:</strong> {{ analysis.o_strain }}</p>  
+  <p><strong>Status:</strong> {{ analysis.status }} </p>  
+<!--
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Copies</h4>
+
+    {% for copy in book.bookinstance_set.all %}
+    <hr>
+    <p class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'm' %}text-danger{% else %}text-warning{% endif %}">{{ copy.get_status_display }}</p>
+    {% if copy.status != 'a' %}<p><strong>Due to be returned:</strong> {{copy.due_back}}</p>{% endif %}
+    <p><strong>Imprint:</strong> {{copy.imprint}}</p>
+    <p class="text-muted"><strong>Id:</strong> {{copy.id}}</p>
+    {% endfor %}
+  </div>
+-->
+{% endblock %}
